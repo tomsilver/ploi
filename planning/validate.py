@@ -5,6 +5,15 @@ import tempfile
 import os
 import subprocess
 
+VALIDATE_CMD = "validate"
+
+
+def verify_validate_installed():
+    """Return True if validate is installed properly."""
+    cmd_str = VALIDATE_CMD
+    output = subprocess.getoutput(cmd_str)
+    return "VAL: The PDDL+ plan validation tool" in output
+
 
 def validate_strips_plan(domain_file, problem_file, plan):
     """Return True for a successfully validated plan, False otherwise.
@@ -15,7 +24,7 @@ def validate_strips_plan(domain_file, problem_file, plan):
     planfile = tempfile.NamedTemporaryFile(delete=False).name
     with open(planfile, "w") as f:
         f.write(plan_str)
-    cmd_str = "validate -v {} {} {}".format(domain_file, problem_file, planfile)
+    cmd_str = "{} -v {} {} {}".format(VALIDATE_CMD, domain_file, problem_file, planfile)
     output = subprocess.getoutput(cmd_str)
     os.remove(planfile)
     if "Plan valid" in output:
