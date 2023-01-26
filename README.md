@@ -6,7 +6,7 @@ Planning with Learned Object Importance in Large Problem Instances using Graph N
 
 Tom Silver*, Rohan Chitnis*, Aidan Curtis,  Joshua Tenenbaum, Tomas Lozano-Perez, Leslie Pack Kaelbling.
 
-For any questions or issues with the code, please email ronuchit@mit.edu and tslvr@mit.edu.
+For any questions or issues with the code, please email ronuchit@gmail.com and tslvr@mit.edu.
 
 Link to paper: https://arxiv.org/abs/2009.05613
 
