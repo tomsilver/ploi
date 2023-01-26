@@ -6,7 +6,7 @@ import time
 import argparse
 import pddlgym
 from PLOI.planning import PlanningTimeout, PlanningFailure, FD, \
-    validate_strips_plan, IncrementalPlanner
+    validate_strips_plan, verify_validate_installed, IncrementalPlanner
 from PLOI.guidance import NoSearchGuidance, GNNSearchGuidance
 
 
@@ -72,6 +72,7 @@ def _create_guider(guider_name, planner_name, num_train_problems,
 def _run(domain_name, train_planner_name, test_planner_name,
          guider_name, num_seeds, num_train_problems, num_test_problems,
          do_incremental_planning, timeout, num_epochs):
+    assert verify_validate_installed(), "`validate` installation not found, please follow the README"
     print("Starting run:")
     print("\tDomain: {}".format(domain_name))
     print("\tTrain planner: {}".format(train_planner_name))
